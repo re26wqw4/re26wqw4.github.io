@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动漫官网首页-动漫新番导视_追番入口_番剧速览</title>
+<meta name="description" content="动漫官网首页汇聚当季新番导视、追番入口与番剧速览，提供作品简介、更新时段与类型筛选，帮助观众快速找到想看的动画。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314182b'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23ff7a59' stroke-width='3'/%3E%3Ccircle cx='26' cy='28' r='3.4' fill='%23ffd166'/%3E%3Ccircle cx='38' cy='28' r='3.4' fill='%23ffd166'/%3E%3Cpath d='M24 39c5 4 11 4 16 0' fill='none' stroke='%23ff7a59' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#14182b;
+  --ink-soft:#39405c;
+  --muted:#6b7290;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#e2ded4;
+  --accent:#ff6a45;
+  --accent-deep:#e2502c;
+  --gold:#ffd166;
+  --mint:#2f9e8f;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(20,24,43,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;}
+a{color:inherit;text-decoration:none;}
+.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 22px;}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,244,239,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;min-height:70px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:38px;height:38px;flex:0 0 auto;}
+.brand-text{
+  font-size:19px;font-weight:800;letter-spacing:.02em;color:var(--ink);
+}
+.nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.nav a{
+  font-size:15px;color:var(--ink-soft);padding:7px 12px;border-radius:999px;
+  transition:background .18s ease,color .18s ease;font-weight:500;
+}
+.nav a:hover,.nav a:focus-visible{background:#fdeee8;color:var(--accent-deep);outline:none;}
+.nav .nav-cta{
+  background:var(--ink);color:#fff;font-weight:600;
+}
+.nav .nav-cta:hover,.nav .nav-cta:focus-visible{background:var(--accent-deep);color:#fff;}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255,106,69,.16), transparent 46%),
+    radial-gradient(circle at 6% 92%, rgba(47,158,143,.14), transparent 44%),
+    linear-gradient(180deg,#fffdf9 0%, #f6f4ef 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+  padding:58px 0 62px;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;
+  color:var(--accent-deep);text-transform:uppercase;
+  background:#ffe9e1;border-radius:999px;padding:5px 14px;margin-bottom:18px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+h1{
+  font-size:clamp(30px,4.6vw,50px);
+  line-height:1.2;margin:0 0 18px;letter-spacing:-.01em;font-weight:900;
+}
+h1 .hl{
+  background:linear-gradient(transparent 62%, var(--gold) 62%);
+  padding:0 2px;
+}
+.hero-lead{
+  font-size:17px;color:var(--ink-soft);max-width:33em;margin:0 0 26px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;border-radius:999px;font-weight:700;font-size:15.5px;
+  border:1px solid transparent;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(255,106,69,.34);}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--accent-deep);transform:translateY(-2px);outline:none;}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line);}
+.btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--accent);color:var(--accent-deep);transform:translateY(-2px);outline:none;}
+[data-download-placeholder="true"]{
+  pointer-events:none;opacity:.95;
+}
+.hero-stats{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap;}
+.stat-num{font-size:24px;font-weight:900;line-height:1.1;color:var(--ink);}
+.stat-label{font-size:13px;color:var(--muted);margin-top:2px;}
+.hero-art{position:relative;}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 18px 34px rgba(20,24,43,.14));}
+.art-tag{
+  position:absolute;bottom:10px;left:-6px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:9px 14px;font-size:13px;font-weight:600;color:var(--ink-soft);
+  box-shadow:var(--shadow);
+}
+
+/* ---------- section base ---------- */
+section{padding:62px 0;}
+.sec-head{margin-bottom:32px;max-width:44em;}
+.sec-kicker{
+  font-size:13px;font-weight:800;letter-spacing:.16em;color:var(--mint);
+  text-transform:uppercase;margin-bottom:8px;
+}
+h2{font-size:clamp(23px,2.7vw,31px);margin:0 0 10px;font-weight:900;letter-spacing:-.005em;}
+.sec-desc{color:var(--muted);margin:0;font-size:15.5px;}
+
+/* ---------- season picks ---------- */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pick-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .18s ease,border-color .18s ease;
+}
+.pick-card:hover{transform:translateY(-4px);border-color:#f3c9bd;}
+.pick-visual{position:relative;aspect-ratio:16/9;overflow:hidden;}
+.pick-visual svg{width:100%;height:100%;}
+.pick-badge{
+  position:absolute;top:10px;left:10px;background:rgba(20,24,43,.82);color:#fff;
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.pick-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.pick-title{font-size:17.5px;font-weight:800;margin:0 0 6px;}
+.pick-meta{font-size:13px;color:var(--muted);margin:0 0 10px;}
+.pick-text{font-size:14.5px;color:var(--ink-soft);margin:0 0 16px;flex:1;}
+.pick-link{font-size:14px;font-weight:700;color:var(--accent-deep);}
+.pick-link:hover{text-decoration:underline;}
+
+/* ---------- filter / schedule ---------- */
+.schedule{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px;
+}
+.chip{
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  border-radius:999px;padding:8px 18px;font-size:14.5px;font-weight:600;cursor:pointer;
+  transition:all .16s ease;font-family:inherit;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent-deep);}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;}
+.search-box{
+  margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--paper);
+  border:1px solid var(--line);border-radius:999px;padding:8px 16px;min-width:230px;
+}
+.search-box input{
+  border:none;background:transparent;outline:none;font-size:14.5px;width:100%;
+  font-family:inherit;color:var(--ink);
+}
+.search-box svg{width:16px;height:16px;flex:0 0 auto;stroke:var(--muted);}
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.show-item{
+  display:flex;gap:16px;align-items:center;background:var(--paper);
+  border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+}
+.show-icon{
+  width:46px;height:46px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;
+  background:#fff;border:1px solid var(--line);
+}
+.show-icon svg{width:24px;height:24px;}
+.show-name{font-weight:800;font-size:16px;margin:0 0 2px;}
+.show-sub{font-size:13.5px;color:var(--muted);margin:0;}
+.show-time{
+  margin-left:auto;font-size:13px;font-weight:700;color:var(--mint);
+  background:#e7f5f2;border-radius:999px;padding:4px 11px;white-space:nowrap;
+}
+.empty-tip{
+  grid-column:1/-1;text-align:center;color:var(--muted);font-size:14.5px;
+  padding:26px;border:1px dashed var(--line);border-radius:14px;display:none;
+}
+
+/* ---------- guide ---------- */
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.guide-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;box-shadow:var(--shadow);
+}
+.guide-num{
+  font-size:13px;font-weight:900;color:var(--accent);letter-spacing:.1em;margin-bottom:12px;
+}
+.guide-card h3{font-size:18px;margin:0 0 10px;font-weight:800;}
+.guide-card p{margin:0;font-size:14.8px;color:var(--ink-soft);}
+
+/* ---------- notice / download ---------- */
+.notice{
+  background:var(--ink);color:#eef0f7;border-radius:24px;
+  padding:44px 40px;display:grid;grid-template-columns:1.4fr .6fr;gap:32px;align-items:center;
+}
+.notice h2{color:#fff;margin-bottom:12px;}
+.notice p{color:#b9bfd6;margin:0 0 8px;font-size:15px;max-width:36em;}
+.notice .btn-primary{box-shadow:none;}
+.dl-box{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.dl-note{font-size:12.5px;color:#8a91ad;}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--line);background:#fff;padding:44px 0 34px;
+}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+.foot-brand{max-width:26em;}
+.foot-brand .brand-text{font-size:17px;}
+.foot-brand p{font-size:14px;color:var(--muted);margin:12px 0 0;}
+.foot-links{display:flex;gap:52px;flex-wrap:wrap;}
+.foot-col h4{font-size:13.5px;font-weight:800;margin:0 0 12px;color:var(--ink);letter-spacing:.04em;}
+.foot-col a{display:block;font-size:14px;color:var(--muted);margin-bottom:8px;}
+.foot-col a:hover{color:var(--accent-deep);}
+.copyright{
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;padding:44px 0 50px;}
+  .hero-art{order:-1;max-width:420px;margin:0 auto;}
+  .pick-grid,.guide-grid{grid-template-columns:1fr 1fr;}
+  .list{grid-template-columns:1fr;}
+  .notice{grid-template-columns:1fr;padding:34px 26px;}
+  .search-box{margin-left:0;width:100%;}
+}
+@media (max-width:600px){
+  body{font-size:15.5px;}
+  .header-inner{min-height:auto;padding:12px 0;}
+  .nav a{padding:6px 10px;font-size:14px;}
+  .pick-grid,.guide-grid{grid-template-columns:1fr;}
+  section{padding:46px 0;}
+  .hero-stats{gap:20px;}
+  .stat-num{font-size:21px;}
+  .show-item{flex-wrap:wrap;}
+  .show-time{margin-left:0;}
+  .foot-links{gap:34px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="动漫官网首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#14182b"/>
+        <circle cx="32" cy="32" r="16" fill="none" stroke="#ff6a45" stroke-width="3"/>
+        <circle cx="26" cy="28" r="3.4" fill="#ffd166"/>
+        <circle cx="38" cy="28" r="3.4" fill="#ffd166"/>
+        <path d="M24 39c5 4 11 4 16 0" fill="none" stroke="#ff6a45" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">动漫官网首页</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#season">当季新番</a>
+      <a href="#schedule">追番时刻</a>
+      <a href="#guide">观影路线</a>
+      <a href="#notice">站内公告</a>
+      <a class="nav-cta" href="#schedule">开始追番</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>当季新番同步更新</span>
+        <h1>动漫官网首页</h1>
+        <p class="hero-lead">这里是动漫官网首页的入口页：当季新番导视、追番时刻与番剧速览集中在这里。挑一部作品，看简介、认时段，再决定要不要加入追番清单。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#season">看当季新番</a>
+          <a class="btn btn-ghost" href="#schedule">查更新时间</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">6 部</div>
+            <div class="stat-label">当季导视作品</div>
+          </div>
+          <div>
+            <div class="stat-num">7 天</div>
+            <div class="stat-label">每周更新排期</div>
+          </div>
+          <div>
+            <div class="stat-num">5 类</div>
+            <div class="stat-label">题材筛选标签</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 420 340" role="img" aria-label="插画：屏幕中的动画场景与播放窗口">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd9cc"/>
+              <stop offset="1" stop-color="#ffeccb"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#14182b"/>
+              <stop offset="1" stop-color="#2b3152"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="30" width="384" height="250" rx="26" fill="url(#g1)"/>
+          <rect x="52" y="62" width="316" height="186" rx="16" fill="url(#g2)"/>
+          <circle cx="150" cy="140" r="26" fill="#ffd166"/>
+          <circle cx="146" cy="136" r="4" fill="#14182b"/>
+          <circle cx="158" cy="136" r="4" fill="#14182b"/>
+          <path d="M142 152c6 5 13 5 19 0" fill="none" stroke="#14182b" stroke-width="3" stroke-linecap="round"/>
+          <path d="M212 190c18-34 42-48 66-46 24 2 40 18 52 40" fill="none" stroke="#ff6a45" stroke-width="8" stroke-linecap="round"/>
+          <path d="M228 196c14-20 30-30 48-30" fill="none" stroke="#2f9e8f" stroke-width="6" stroke-linecap="round"/>
+          <rect x="86" y="106" width="34" height="8" rx="4" fill="#4a5178"/>
+          <rect x="86" y="124" width="22" height="8" rx="4" fill="#3b4268"/>
+          <polygon points="292,124 320,140 292,156" fill="#fff"/>
+          <circle cx="306" cy="140" r="26" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="3"/>
+          <rect x="128" y="288" width="164" height="16" rx="8" fill="#e3ddd0"/>
+          <rect x="60" y="304" width="300" height="14" rx="7" fill="#ece6da"/>
+        </svg>
+        <div class="art-tag">新番导视 · 每周更新</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASON PICKS -->
+  <section id="season">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Season Picks</div>
+        <h2>当季新番导视</h2>
+        <p class="sec-desc">本季挑选 6 部风格不同的作品放进导视。每部都给出题材、更新节奏与一句话看点，方便在动漫官网首页直接判断要不要追。</p>
+      </div>
+
+      <div class="pick-grid">
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#ffe6da"/>
+              <circle cx="86" cy="84" r="34" fill="#ff8a63"/>
+              <path d="M140 132c26-46 58-64 96-58" fill="none" stroke="#14182b" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="250" cy="62" r="18" fill="#ffd166"/>
+            </svg>
+            <span class="pick-badge">奇幻</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">星海拾遗</h3>
+            <p class="pick-meta">周四更新 · 单集 24 分钟</p>
+            <p class="pick-text">以旅行者寻找失落灯塔为线索的冒险故事，第一集就把世界观铺开，适合喜欢慢热设定的观众。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#e2f4f0"/>
+              <rect x="52" y="46" width="96" height="88" rx="12" fill="#2f9e8f"/>
+              <rect x="168" y="66" width="100" height="68" rx="12" fill="#fff"/>
+              <circle cx="218" cy="100" r="14" fill="#ffd166"/>
+            </svg>
+            <span class="pick-badge">日常</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">放学后的第七格</h3>
+            <p class="pick-meta">周二更新 · 单集 23 分钟</p>
+            <p class="pick-text">社团活动与漫画创作交叠的校园群像，节奏轻快，每集收束在一个小事件上，零门槛补番。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#e6e9f8"/>
+              <path d="M46 140 L120 52 L176 112 L226 66 L280 140 Z" fill="#39405c"/>
+              <circle cx="258" cy="44" r="16" fill="#ffd166"/>
+            </svg>
+            <span class="pick-badge">热血</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">风起跑线</h3>
+            <p class="pick-meta">周六更新 · 单集 25 分钟</p>
+            <p class="pick-text">田径队重建的故事，比赛段落实拍感很强，动作作画是这一季最受讨论的部分。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#fff3d9"/>
+              <circle cx="160" cy="88" r="40" fill="#ff6a45"/>
+              <circle cx="160" cy="88" r="18" fill="#fff3d9"/>
+              <rect x="60" y="132" width="200" height="10" rx="5" fill="#14182b"/>
+            </svg>
+            <span class="pick-badge">悬疑</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">午夜广播站</h3>
+            <p class="pick-meta">周五更新 · 单集 24 分钟</p>
+            <p class="pick-text">深夜电台串起的小镇谜案，每三集回收一次线索，建议按顺序连续观看。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#e8f6e4"/>
+              <path d="M40 148c30-4 46-40 76-40s40 30 68 30 44-38 96-38" fill="none" stroke="#2f9e8f" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="240" cy="60" r="20" fill="#ffd166"/>
+            </svg>
+            <span class="pick-badge">治愈</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">面包店的清晨</h3>
+            <p class="pick-meta">周日更新 · 单集 22 分钟</p>
+            <p class="pick-text">一间小面包店与街坊邻居的日常，色调柔和，适合周末放松时一口气看两三集。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+
+        <article class="pick-card">
+          <div class="pick-visual">
+            <svg viewBox="0 0 320 180" aria-hidden="true">
+              <rect width="320" height="180" fill="#f0e9fb"/>
+              <polygon points="160,40 196,96 160,152 124,96" fill="#6b5bd2"/>
+              <circle cx="160" cy="96" r="12" fill="#ffd166"/>
+              <circle cx="64" cy="52" r="8" fill="#ff8a63"/>
+              <circle cx="258" cy="132" r="10" fill="#2f9e8f"/>
+            </svg>
+            <span class="pick-badge">科幻</span>
+          </div>
+          <div class="pick-body">
+            <h3 class="pick-title">第七轨道</h3>
+            <p class="pick-meta">周三更新 · 单集 24 分钟</p>
+            <p class="pick-text">空间站乘务组的群像剧，设定密度偏高，第一集末尾的转折是追番讨论的主要焦点。</p>
+            <a class="pick-link" href="#schedule">加入追番 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE / FILTER -->
+  <section id="schedule" class="schedule">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Weekly Schedule</div>
+        <h2>追番时刻与题材筛选</h2>
+        <p class="sec-desc">按题材筛选或直接搜索片名，就能在动漫官网首页找到对应的更新日。排期按周一到周日列出，只收录上面导视里的作品。</p>
+      </div>
+
+      <div class="filter-bar" id="filterBar" role="group" aria-label="题材筛选">
+        <button class="chip" type="button" data-tag="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-tag="奇幻" aria-pressed="false">奇幻</button>
+        <button class="chip" type="button" data-tag="日常" aria-pressed="false">日常</button>
+        <button class="chip" type="button" data-tag="热血" aria-pressed="false">热血</button>
+        <button class="chip" type="button" data-tag="悬疑" aria-pressed="false">悬疑</button>
+        <button class="chip" type="button" data-tag="治愈" aria-pressed="false">治愈</button>
+        <button class="chip" type="button" data-tag="科幻" aria-pressed="false">科幻</button>
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M16.5 16.5 L21 21"></path>
+          </svg>
+          <input type="search" id="showSearch" placeholder="搜索片名，如：星海" aria-label="搜索片名">
+        </label>
+      </div>
+
+      <div class="list" id="showList">
+        <div class="show-item" data-tag="奇幻" data-name="星海拾遗">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 3 L14.6 9.2 L21 10 L16.2 14.4 L17.6 21 L12 17.6 L6.4 21 L7.8 14.4 L3 10 L9.4 9.2 Z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">星海拾遗</p>
+            <p class="show-sub">奇幻 · 寻找失落灯塔的旅程</p>
+          </div>
+          <span class="show-time">周四 20:00</span>
+        </div>
+
+        <div class="show-item" data-tag="日常" data-name="放学后的第七格">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f9e8f" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="3"/>
+              <path d="M7 10h4M7 14h7"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">放学后的第七格</p>
+            <p class="show-sub">日常 · 社团与漫画创作</p>
+          </div>
+          <span class="show-time">周二 19:30</span>
+        </div>
+
+        <div class="show-item" data-tag="热血" data-name="风起跑线">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e2502c" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 18 L10 8 L14 13 L20 6"/>
+              <path d="M15 6h5v5"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">风起跑线</p>
+            <p class="show-sub">热血 · 田径队重建</p>
+          </div>
+          <span class="show-time">周六 21:00</span>
+        </div>
+
+        <div class="show-item" data-tag="悬疑" data-name="午夜广播站">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#39405c" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 4a7 7 0 0 1 7 7v5H5v-5a7 7 0 0 1 7-7Z"/>
+              <path d="M9 20h6"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">午夜广播站</p>
+            <p class="show-sub">悬疑 · 深夜电台谜案</p>
+          </div>
+          <span class="show-time">周五 22:00</span>
+        </div>
+
+        <div class="show-item" data-tag="治愈" data-name="面包店的清晨">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f9e8f" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M5 14c0-4 3-7 7-7s7 3 7 7"/>
+              <path d="M4 14h16v4H4z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">面包店的清晨</p>
+            <p class="show-sub">治愈 · 小面包店与街坊</p>
+          </div>
+          <span class="show-time">周日 10:00</span>
+        </div>
+
+        <div class="show-item" data-tag="科幻" data-name="第七轨道">
+          <div class="show-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6b5bd2" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-25 12 12)"/>
+            </svg>
+          </div>
+          <div>
+            <p class="show-name">第七轨道</p>
+            <p class="show-sub">科幻 · 空间站群像</p>
+          </div>
+          <span class="show-time">周三 21:30</span>
+        </div>
+
+        <div class="empty-tip" id="emptyTip">没有找到匹配的片名，换个关键词或点“全部”试试。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Viewing Route</div>
+        <h2>三条观影路线</h2>
+        <p class="sec-desc">第一次来动漫官网首页，可以先按自己的时间与偏好选一条路线，再回到上面的排期表确认更新日。</p>
+      </div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-num">路线 01</div>
+          <h3>零门槛补番</h3>
+          <p>从《放学后的第七格》和《面包店的清晨》入手。两部都是单元式结构，单集独立成篇，漏看一集也能接上。</p>
+        </div>
+        <div class="guide-card">
+          <div class="guide-num">路线 02</div>
+          <h3>连续剧情派</h3>
+          <p>先看《午夜广播站》，再补《第七轨道》。两部都依赖线索累积，建议从第一集按顺序看到最新一集。</p>
+        </div>
+        <div class="guide-card">
+          <div class="guide-num">路线 03</div>
+          <h3>作画与演出</h3>
+          <p>《风起跑线》的比赛段落与《星海拾遗》的场景设计是本季讨论度较高的部分，适合想看作画表现的观众。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICE -->
+  <section id="notice" style="padding-top:0;">
+    <div class="wrap">
+      <div class="notice">
+        <div>
+          <h2>站内公告与追番清单</h2>
+          <p>动漫官网首页的导视与排期会随当季更新调整；片名、题材与更新时段以上方列表为准。</p>
+          <p>追番清单目前以本地记录方式保存，换设备不会同步。想固定收藏，请自行截图或记下片名。</p>
+        </div>
+        <div class="dl-box">
+          <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载追番清单</a>
+          <span class="dl-note">下载入口暂未开放，后续上线后可获取完整清单文件。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-text">动漫官网首页</span>
+        <p>当季新番导视、追番时刻与番剧速览的入口页。内容围绕本季导视作品展开，排期与题材以页面列表为准。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>浏览</h4>
+          <a href="#season">当季新番导视</a>
+          <a href="#schedule">追番时刻</a>
+          <a href="#guide">三条观影路线</a>
+        </div>
+        <div class="foot-col">
+          <h4>站内</h4>
+          <a href="#notice">站内公告</a>
+          <a href="#top">回到顶部</a>
+          <a href="#schedule">题材筛选</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>动漫官网首页 · 当季导视与追番入口</span>
+      <span>页面内容随播出季更新</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.show-item'));
+  var search = document.getElementById('showSearch');
+  var emptyTip = document.getElementById('emptyTip');
+  var currentTag = 'all';
+
+  function apply(){
+    var q = (search.value || '').trim().toLowerCase();
+    var visible = 0;
+    items.forEach(function(el){
+      var tagOk = currentTag === 'all' || el.getAttribute('data-tag') === currentTag;
+      var name = (el.getAttribute('data-name') || '').toLowerCase();
+      var textOk = q === '' || name.indexOf(q) > -1;
+      var ok = tagOk && textOk;
+      el.style.display = ok ? '' : 'none';
+      if(ok) visible++;
+    });
+    emptyTip.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      currentTag = btn.getAttribute('data-tag');
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      apply();
+    });
+  });
+
+  search.addEventListener('input', apply);
+})();
+</script>
+
+</body>
+          </html>
