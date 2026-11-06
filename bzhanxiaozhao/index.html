@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b站校招-校招岗位_网申入口_应届生求职</title>
+<meta name="description" content="b站校招主题首页，汇总b站校招岗位方向、网申与笔试面试流程说明、应届生求职常见问题与准备要点，帮助访问者定位适合的投递入口与时间节点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fb7299'/%3E%3Cpath d='M22 26h20a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V30a4 4 0 0 1 4-4z' fill='none' stroke='%23fff' stroke-width='3.2'/%3E%3Cpath d='M25 20l4 6M39 20l-4 6' stroke='%23fff' stroke-width='3.2' stroke-linecap='round'/%3E%3Ccircle cx='27' cy='37' r='2' fill='%23fff'/%3E%3Ccircle cx='37' cy='37' r='2' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --pink:#fb7299;
+    --pink-deep:#e35d85;
+    --blue:#4aa3df;
+    --ink:#1b1d22;
+    --ink-2:#4a4f59;
+    --ink-3:#7a818c;
+    --line:#e8eaf0;
+    --bg:#f7f8fb;
+    --card:#ffffff;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* header */
+  .site-head{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;height:64px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.3px;}
+  .brand svg{display:block;flex:none;}
+  .brand-text{white-space:nowrap;}
+  .nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .nav a{
+    font-size:14.5px;color:var(--ink-2);padding:7px 12px;border-radius:9px;
+    transition:background .18s,color .18s;
+  }
+  .nav a:hover{background:#fdeef3;color:var(--pink-deep);}
+  .nav .nav-cta{
+    background:var(--pink);color:#fff;font-weight:600;
+  }
+  .nav .nav-cta:hover{background:var(--pink-deep);color:#fff;}
+
+  /* hero */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#fff 0%,#fdf1f5 58%,#eef6fd 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-90px;top:-70px;width:340px;height:340px;
+    border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(251,114,153,.20),rgba(74,163,223,.10) 70%,transparent 72%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;padding:52px 0 48px;}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--pink-deep);
+    background:#fff;border:1px solid #fbd3e0;border-radius:999px;padding:5px 14px;
+  }
+  h1{
+    font-size:clamp(30px,5vw,46px);
+    line-height:1.25;margin:18px 0 14px;letter-spacing:.5px;font-weight:800;
+  }
+  h1 .hl{
+    background:linear-gradient(transparent 62%,#fbcddb 62%);
+    padding:0 2px;
+  }
+  .hero-lead{
+    max-width:640px;color:var(--ink-2);font-size:16.5px;margin:0 0 26px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 24px;border-radius:11px;font-size:15.5px;font-weight:600;
+    transition:transform .16s,box-shadow .16s,background .16s;
+  }
+  .btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(251,114,153,.32);}
+  .btn-primary:hover{background:var(--pink-deep);transform:translateY(-1px);}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);}
+  .btn-ghost:hover{border-color:#f7b8cb;color:var(--pink-deep);}
+  .btn[aria-disabled="true"]{opacity:.55;cursor:default;pointer-events:none;}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:620px;
+  }
+  .stat{
+    background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:12px;
+    padding:12px 16px;
+  }
+  .stat b{display:block;font-size:19px;color:var(--pink-deep);line-height:1.4;}
+  .stat span{font-size:13px;color:var(--ink-3);}
+
+  /* section basics */
+  section{padding:54px 0;}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(21px,3vw,26px);margin:0;letter-spacing:.3px;}
+  .sec-head p{margin:6px 0 0;color:var(--ink-3);font-size:14.5px;max-width:560px;}
+  .kicker{
+    display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:1.5px;
+    color:var(--blue);text-transform:uppercase;margin-bottom:8px;
+  }
+
+  /* positions */
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:transform .18s,box-shadow .18s,border-color .18s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(27,29,34,.07);border-color:#f7c6d6;}
+  .card-ico{
+    width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:#fdeef3;margin-bottom:14px;
+  }
+  .card h3{margin:0 0 8px;font-size:17px;letter-spacing:.2px;}
+  .card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.72;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+  .chip{
+    font-size:12.5px;color:var(--ink-2);background:#f4f6fa;
+    border-radius:999px;padding:3px 10px;
+  }
+
+  /* process */
+  .process{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:step;}
+  .step{
+    position:relative;background:var(--bg);border:1px solid var(--line);border-radius:14px;
+    padding:22px 20px 20px;
+  }
+  .step::before{
+    counter-increment:step;content:counter(step,decimal-leading-zero);
+    font-size:13px;font-weight:800;color:var(--pink);letter-spacing:1px;
+    display:block;margin-bottom:10px;
+  }
+  .step h3{margin:0 0 8px;font-size:16px;}
+  .step p{margin:0;font-size:14px;color:var(--ink-2);}
+
+  /* faq + aside */
+  .two-col{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:start;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:13px;
+    padding:0 20px;margin-bottom:12px;
+  }
+  details summary{
+    cursor:pointer;list-style:none;padding:17px 30px 17px 0;position:relative;
+    font-weight:600;font-size:15.5px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{
+    content:"";position:absolute;right:2px;top:50%;width:9px;height:9px;
+    border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
+    transform:translateY(-70%) rotate(45deg);transition:transform .2s;
+  }
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+  details .ans{padding:0 0 18px;color:var(--ink-2);font-size:14.5px;border-top:1px solid var(--line);padding-top:14px;margin-top:-2px;}
+  .aside-box{
+    background:linear-gradient(170deg,#fff,#fdf3f6);
+    border:1px solid #fbd3e0;border-radius:var(--radius);padding:24px;
+  }
+  .aside-box h3{margin:0 0 12px;font-size:16.5px;}
+  .aside-box ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14.5px;}
+  .aside-box li{margin-bottom:9px;}
+  .aside-box li:last-child{margin-bottom:0;}
+  .mini-note{font-size:13px;color:var(--ink-3);margin:16px 0 0;padding-top:14px;border-top:1px dashed #f3c4d4;}
+
+  /* search */
+  .search-bar{
+    display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;
+  }
+  .search-bar input{
+    flex:1 1 240px;min-width:0;font:inherit;font-size:15px;
+    padding:12px 16px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);
+    outline:none;transition:border-color .18s,box-shadow .18s;
+  }
+  .search-bar input:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(251,114,153,.14);}
+  .search-bar button{
+    font:inherit;font-size:15px;font-weight:600;padding:12px 22px;border-radius:11px;
+    border:none;background:var(--ink);color:#fff;cursor:pointer;transition:background .18s;
+  }
+  .search-bar button:hover{background:#33373f;}
+  .result-line{font-size:13.5px;color:var(--ink-3);margin:0 0 14px;}
+  .pos-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .pos-item{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .pos-item .t{font-weight:600;font-size:15px;}
+  .pos-item .d{font-size:13px;color:var(--ink-3);margin-top:3px;}
+  .pos-item .tag{
+    flex:none;font-size:12.5px;font-weight:600;color:var(--pink-deep);
+    background:#fdeef3;border-radius:999px;padding:3px 11px;
+  }
+  .empty{font-size:14.5px;color:var(--ink-3);padding:18px 0;}
+
+  /* footer */
+  footer{
+    background:#171a20;color:#c6cad3;padding:44px 0 28px;margin-top:10px;
+  }
+  .foot-top{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:17px;margin-bottom:10px;}
+  .foot-desc{font-size:13.5px;color:#8d93a0;max-width:420px;line-height:1.75;}
+  .foot-links{display:flex;gap:40px;flex-wrap:wrap;}
+  .foot-links h4{margin:0 0 10px;font-size:13.5px;color:#fff;letter-spacing:.5px;}
+  .foot-links a{display:block;font-size:13.5px;color:#8d93a0;margin-bottom:8px;}
+  .foot-links a:hover{color:var(--pink);}
+  .foot-bottom{
+    margin-top:30px;padding-top:18px;border-top:1px solid #262a32;
+    font-size:12.5px;color:#737a87;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  @media (max-width:860px){
+    .grid-3{grid-template-columns:1fr 1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .two-col{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .head-inner{height:auto;padding:12px 0;flex-direction:column;align-items:flex-start;gap:10px;}
+    .nav a{padding:6px 10px;font-size:14px;}
+    .hero-inner{padding:34px 0 32px;}
+    .hero-stats{grid-template-columns:1fr;}
+    section{padding:40px 0;}
+    .grid-3{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .pos-list{grid-template-columns:1fr;}
+    .foot-links{gap:26px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="b站校招首页">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="15" fill="#fb7299"/>
+        <path d="M22 26h20a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V30a4 4 0 0 1 4-4z" fill="none" stroke="#fff" stroke-width="3.2"/>
+        <path d="M25 20l4 6M39 20l-4 6" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="27" cy="37" r="2" fill="#fff"/>
+        <circle cx="37" cy="37" r="2" fill="#fff"/>
+      </svg>
+      <span class="brand-text">b站校招</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#positions">岗位方向</a>
+      <a href="#search">岗位检索</a>
+      <a href="#process">流程节点</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#search">开始投递</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <span class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#fb7299"/><path d="M5 8.2l2 2 4-4.4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        应届生求职主题页
+      </span>
+      <h1><span class="hl">b站校招</span></h1>
+      <p class="hero-lead">面向应届生的 b站校招 信息聚合页：先看清岗位方向与能力要求，再走通网申、笔试、面试到录用的每个节点，把有限的时间放在匹配度最高的投递上。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#search">查看岗位方向</a>
+        <a class="btn btn-ghost" href="#process">了解投递流程</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>技术与非技术</b><span>岗位按两类方向拆分展示</span></div>
+        <div class="stat"><b>网申为起点</b><span>投递链路从在线申请开始</span></div>
+        <div class="stat"><b>多轮筛选</b><span>简历、笔试、面试逐层推进</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSITIONS -->
+  <section id="positions">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Position Map</span>
+          <h2>先看清方向：b站校招的岗位版图</h2>
+          <p>岗位分类以实际业务线的用人需求为线索，方向不同，考察重点也不同。下面按能力类型归并，方便对齐自己的项目经历。</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#e35d85" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l-4-6 4-6M16 6l4 6-4 6"/></svg>
+          </div>
+          <h3>技术研发</h3>
+          <p>覆盖后端、前端、客户端、算法与数据等方向，考察编程基础、系统设计与项目深度，简历中的技术栈要与投递岗位对应。</p>
+          <div class="chips"><span class="chip">后端开发</span><span class="chip">前端开发</span><span class="chip">算法</span><span class="chip">数据</span></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#4aa3df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+          </div>
+          <h3>产品与设计</h3>
+          <p>产品岗关注需求拆解与逻辑表达，设计岗看作品集与视觉一致性。两类岗位通常需要准备一份能讲清取舍过程的作品或方案。</p>
+          <div class="chips"><span class="chip">产品经理</span><span class="chip">交互设计</span><span class="chip">视觉设计</span></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#e35d85" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+          </div>
+          <h3>运营与内容</h3>
+          <p>围绕社区、内容、活动与用户增长展开，看重对平台内容生态的理解，以及数据复盘和跨团队协作的实际经验。</p>
+          <div class="chips"><span class="chip">内容运营</span><span class="chip">用户运营</span><span class="chip">活动策划</span></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#4aa3df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M17 11l2 2 3-3.5"/></svg>
+          </div>
+          <h3>职能支持</h3>
+          <p>包括人力、财务、法务与市场等方向，岗位数量相对少，更强调专业资质、流程意识与沟通中的准确表达。</p>
+          <div class="chips"><span class="chip">人力资源</span><span class="chip">财务</span><span class="chip">市场营销</span></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#e35d85" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.7 6.7 19.5l1.1-6L3.4 9.3l6-.8z"/></svg>
+          </div>
+          <h3>游戏与商业化</h3>
+          <p>涉及游戏策划、商业化运营与广告相关岗位，需要理解内容与商业之间的平衡，并对行业玩法有持续观察。</p>
+          <div class="chips"><span class="chip">游戏策划</span><span class="chip">商业化</span><span class="chip">广告运营</span></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#4aa3df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5"/><path d="M4 13h16"/></svg>
+          </div>
+          <h3>如何选方向</h3>
+          <p>优先看项目经历能否支撑岗位要求，再看个人长期兴趣。同一份简历不建议投遍所有方向，针对性修改比数量更重要。</p>
+          <div class="chips"><span class="chip">匹配度优先</span><span class="chip">简历定制</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Process</span>
+          <h2>从网申到录用：b站校招的推进节点</h2>
+          <p>校招流程通常按阶段推进，每个阶段的准备材料不同。把节点拆开看，能减少临场补材料的被动。</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>在线网申</h3>
+          <p>在官方招聘渠道填写基本信息并上传简历，注意岗位志愿顺序与截止时间，提交后信息修改空间有限。</p>
+        </div>
+        <div class="step">
+          <h3>简历筛选</h3>
+          <p>用人方按岗位要求匹配专业、项目与实习经历，简历中的成果尽量用可量化的方式描述。</p>
+        </div>
+        <div class="step">
+          <h3>笔试与测评</h3>
+          <p>技术岗多含编程与专业题，非技术岗常见行测式题目与业务分析题，提前熟悉题型可减少时间压力。</p>
+        </div>
+        <div class="step">
+          <h3>面试与录用</h3>
+          <p>一般包含业务面与综合面，围绕项目细节、岗位理解和协作方式展开，通过后进入录用沟通环节。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section id="search">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Find Your Fit</span>
+          <h2>按关键词找岗位方向</h2>
+          <p>输入方向关键词，快速定位下面列出的岗位类别。列表用于方向参考，具体岗位名称与要求以官方发布为准。</p>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input id="kw" type="search" placeholder="例如：后端、产品、运营、设计" aria-label="按关键词检索岗位方向">
+        <button id="go" type="button">检索</button>
+      </div>
+      <p class="result-line" id="resultLine">当前展示全部 8 个方向</p>
+      <div class="pos-list" id="posList">
+        <div class="pos-item" data-k="后端开发 技术 研发 算法 数据 编程 java go">
+          <div><div class="t">后端开发</div><div class="d">服务端逻辑、接口与系统设计</div></div><span class="tag">技术研发</span>
+        </div>
+        <div class="pos-item" data-k="前端开发 技术 研发 网页 界面 javascript">
+          <div><div class="t">前端开发</div><div class="d">页面实现、交互与性能优化</div></div><span class="tag">技术研发</span>
+        </div>
+        <div class="pos-item" data-k="算法 数据 机器学习 技术 研发 模型">
+          <div><div class="t">算法与数据</div><div class="d">推荐、建模与数据分析方向</div></div><span class="tag">技术研发</span>
+        </div>
+        <div class="pos-item" data-k="产品 产品经理 需求 方案 设计 交互">
+          <div><div class="t">产品经理</div><div class="d">需求拆解、方案设计与推进</div></div><span class="tag">产品与设计</span>
+        </div>
+        <div class="pos-item" data-k="设计 视觉 交互 作品集 ui">
+          <div><div class="t">视觉与交互设计</div><div class="d">视觉表达与体验流程设计</div></div><span class="tag">产品与设计</span>
+        </div>
+        <div class="pos-item" data-k="运营 内容 用户 活动 社区 增长">
+          <div><div class="t">内容与用户运营</div><div class="d">内容生态、用户增长与活动</div></div><span class="tag">运营与内容</span>
+        </div>
+        <div class="pos-item" data-k="游戏 策划 商业化 广告 运营">
+          <div><div class="t">游戏与商业化</div><div class="d">玩法策划、商业合作与投放</div></div><span class="tag">游戏与商业化</span>
+        </div>
+        <div class="pos-item" data-k="职能 人力 财务 法务 市场 支持">
+          <div><div class="t">职能支持</div><div class="d">人力、财务、法务与市场</div></div><span class="tag">职能支持</span>
+        </div>
+      </div>
+      <p class="empty" id="empty" hidden>没有匹配的方向，试试“技术”“运营”“设计”等更短的关键词。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Q &amp; A</span>
+          <h2>投递前值得先弄清的几件事</h2>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <details open>
+            <summary>非技术专业能投 b站校招 吗？</summary>
+            <div class="ans">可以。运营、内容、产品、设计、职能等方向每年都会面向不同专业背景开放。关键是简历能否证明你与该岗位相关的能力，例如内容作品、项目复盘或实习产出。</div>
+          </details>
+          <details>
+            <summary>简历里应该突出什么？</summary>
+            <div class="ans">优先写与岗位直接相关的项目，把角色、动作和结果写清楚，结果尽量用数字表达。与岗位无关的经历可以压缩，留给面试官提问的空间要集中在最能代表你的部分。</div>
+          </details>
+          <details>
+            <summary>技术岗笔试要准备到什么程度？</summary>
+            <div class="ans">基础数据结构与算法是共同项，其次是与岗位方向对应的专业知识。建议按题型限时练习，同时复习简历中写到的技术点，面试常从简历细节展开。</div>
+          </details>
+          <details>
+            <summary>可以同时投多个方向吗？</summary>
+            <div class="ans">通常允许按志愿顺序投递，但志愿之间应有主次。与其广撒网，不如把第一志愿打磨到最匹配，其余志愿作为补充。</div>
+          </details>
+          <details>
+            <summary>面试一般会问哪些内容？</summary>
+            <div class="ans">常见三类：项目细节与个人贡献、对岗位和业务的理解、协作与解决问题的方式。回答时给出具体情境和处理过程，比笼统评价更有说服力。</div>
+          </details>
+        </div>
+        <aside class="aside-box">
+          <h3>准备清单</h3>
+          <ul>
+            <li>一页简历，按岗位调整关键词与顺序</li>
+            <li>作品集或项目说明，能讲清取舍</li>
+            <li>笔试常考题型的分时限时练习</li>
+            <li>对平台内容与业务的长期观察笔记</li>
+            <li>面试前复盘三段最能代表自己的经历</li>
+          </ul>
+          <p class="mini-note">岗位名称、开放时间与具体要求以官方招聘渠道发布的信息为准，本页内容仅作方向梳理。</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="15" fill="#fb7299"/>
+            <path d="M22 26h20a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V30a4 4 0 0 1 4-4z" fill="none" stroke="#fff" stroke-width="3.2"/>
+            <path d="M25 20l4 6M39 20l-4 6" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="27" cy="37" r="2" fill="#fff"/>
+            <circle cx="37" cy="37" r="2" fill="#fff"/>
+          </svg>
+          b站校招
+        </div>
+        <p class="foot-desc">b站校招 主题首页，围绕岗位方向、投递流程与准备要点组织内容，帮助应届生把求职节奏安排得更清楚。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>站内导航</h4>
+          <a href="#positions">岗位方向</a>
+          <a href="#search">岗位检索</a>
+          <a href="#process">流程节点</a>
+        </div>
+        <div>
+          <h4>求职准备</h4>
+          <a href="#faq">常见问题</a>
+          <a href="#faq">准备清单</a>
+          <a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>b站校招 · 方向梳理与投递准备</span>
+      <span>具体岗位与时间以官方招聘渠道为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var kw = document.getElementById('kw');
+  var go = document.getElementById('go');
+  var list = document.getElementById('posList');
+  var items = Array.prototype.slice.call(list.querySelectorAll('.pos-item'));
+  var line = document.getElementById('resultLine');
+  var empty = document.getElementById('empty');
+
+  function run(){
+    var q = (kw.value || '').trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(el){
+      var hit = !q || (el.getAttribute('data-k') + ' ' + el.textContent).toLowerCase().indexOf(q) > -1;
+      el.style.display = hit ? '' : 'none';
+      if(hit) shown++;
+    });
+    line.textContent = q
+      ? '关键词“' + kw.value.trim() + '”匹配到 ' + shown + ' 个方向'
+      : '当前展示全部 ' + items.length + ' 个方向';
+    empty.hidden = shown > 0;
+  }
+
+  go.addEventListener('click', run);
+  kw.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ run(); } });
+  kw.addEventListener('input', function(){ if(!kw.value.trim()) run(); });
+})();
+</script>
+</body>
+            </html>
